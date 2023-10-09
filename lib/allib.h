@@ -1,5 +1,5 @@
-#ifndef __ALLIB__
-#define __ALLIB__
+#ifndef ALLIB_H
+#define ALLIB_H
 
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
@@ -64,4 +64,4 @@ void drawSelected(int px, int py);
 
 void drawScreen(TYPE_STATE gS, TYPE_BTN **btn, int **board, coord origin, coord dest, int swap, float dropA, ALLEGRO_BITMAP **icons);
 
-#endif
+#endif /* ALLIB_H */

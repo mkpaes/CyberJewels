@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "board.h"
-#include "fileop.h"
+#include "../lib/board.h"
 
 #define SIZE 8
 #define UP -1

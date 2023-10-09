@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "board.h"
-#include "fileop.h"
 #include "allib.h"
 
 #define STATE_QUIT -1

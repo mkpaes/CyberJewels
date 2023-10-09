@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "allib.h"
+#include "../lib/allib.h"
 
 #define STATE_QUIT     -1
 #define STATE_MENU      0

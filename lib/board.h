@@ -1,5 +1,7 @@
-#ifndef __BOARD__
-#define __BOARD__
+#include "./fileop.h"
+
+#ifndef BOARD_H
+#define BOARD_H
 
 typedef struct coord{
     int lin;
@@ -32,4 +34,4 @@ int hasMoves(int **board);
 
 void printBoard(int **board, int score, int level);
 
-#endif
+#endif /* BOARD_H */

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "fileop.h"
+#include "../lib/fileop.h"
 
 #define SIZE 8
 #define MAXCHAR 12
