@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "board.h"
-#include "allib.h"
+#include "../lib/board.h"
+#include "../lib/allib.h"
 
 #define STATE_QUIT -1
 #define STATE_MENU 0
