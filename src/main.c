@@ -83,8 +83,8 @@ int main() {
     game.inState = PLAY;
  
     int swapAnimation = 0, mouseBtn = 0, konami = 0;
-    int selected, modCombo, end; float dropA = 0.0;
-    int** board;
+    int selected, modCombo, end, **board;
+    float dropA = 0.0;
     coord origin, dest;
 
     al_start_timer(timer);
@@ -138,7 +138,7 @@ int main() {
                         if(event.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
                             game.state = STATE_QUIT;
                         if(event.keyboard.keycode == ALLEGRO_KEY_M){
-                            if(al_get_audio_stream_gain(songTheme) != 0)
+                            if(al_get_audio_stream_gain(songTheme))
                                 al_set_audio_stream_gain(songTheme, 0);
                             else
                                 al_set_audio_stream_gain(songTheme, VOLUME);
@@ -347,7 +347,7 @@ int main() {
     deinitAudios(songTheme, songGame, soundSelect, soundConfirm, soundKonami);
     al_destroy_sample(soundPop);
     deinitSprites(icons);
-    if(end) saveScore(game.score);
+    if(end) {saveScore(game.score);}
 
     return 0;
 }

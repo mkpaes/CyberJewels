@@ -62,8 +62,8 @@ void saveScore(int score){
 
     printf("Insira seu nome: ");
     fgets(nome, MAXCHAR, stdin);
-    fprintf(arq, "%06d ", score);
-    fprintf(arq, "%s", nome);
+    fprintf(arq, "%.6d ", score);
+    fprintf(arq, "%s\n", nome);
 
     ordenaLeader(arq);
     fclose(arq);

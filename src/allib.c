@@ -85,7 +85,7 @@ void drawLeader() {
     ALLEGRO_FONT *font = al_load_ttf_font("resources/fonts/airstrike.ttf", 40, 0);
     must_init(font, "font");
 
-    FILE *arq = fopen("saves/leaderboard.txt", "a+");
+    FILE *arq = fopen("saves/leaderboard.txt", "r");
     if(!arq){
         perror("Não foi possível abrir o arquivo leaderboard");
         exit(1);

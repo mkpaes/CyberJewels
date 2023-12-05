@@ -1,37 +1,48 @@
 # Nome do programa
-TARGET = Cyberjewels
+TARGET  = Cyberjewels
 
-SRCDIR = ./src
-INCDIR = ./lib
+# Diretórios
+SRCDIR  = ./src
+INCDIR  = ./lib
+OBJDIR  = ./obj
+SAVEDIR = ./saves
 
-SAVEDIR = saves
 
 # Arquivos .c e .o
-CFILES = $(foreach D, $(SRCDIR), $(wildcard $(D)/*.c))
-OBJFILES = $(patsubst %.c, %.o, $(CFILES))
+CFILES = $(wildcard $(SRCDIR)/*.c)
+OBJFILES = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(CFILES))
 
 # Opções de compilação
 CC = gcc
-FLAGS = -Wall -std=c99
-ALLEGRO = 	-lallegro_image -lallegro_dialog -lallegro_primitives -lallegro_ttf \
-			-lallegro_font -lallegro_audio -lallegro_acodec -lallegro -lm
+CFLAGS = -Wall -std=c99
+LIBALLEGRO = -lallegro_image -lallegro_dialog -lallegro_primitives -lallegro_ttf \
+			 -lallegro_font -lallegro_audio -lallegro_acodec -lallegro -lm
 
 # Compilar e Linkar
-all: $(TARGET) $(SAVEDIR)
+all: folders $(TARGET) clean
+	@echo "Done."
 
 $(TARGET): $(OBJFILES)
-	$(CC) -o $@ $^ $(FLAGS) $(ALLEGRO)
+	@echo "Building $@" 
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBALLEGRO)
 
-.%.o: %.c
-	$(CC) $(FLAGS) -c -o $@ $^
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@echo "Building $@" 
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
-$(SAVEDIR):
+folders:
+	@if [ ! -d "$(OBJDIR)" ]; then \
+		mkdir -p $(OBJDIR); \
+	fi
+
 	@if [ ! -d "$(SAVEDIR)" ]; then \
 		mkdir -p $(SAVEDIR); \
 	fi
 
 clean: 
-	@rm -f $(OBJFILES)
+	@if [ -d "$(OBJDIR)" ]; then \
+		rm -rf $(OBJDIR); \
+	fi
 
 purge: clean
 	@rm -f $(TARGET)
