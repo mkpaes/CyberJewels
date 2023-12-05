@@ -425,7 +425,6 @@ int hasMovesTypeB(int **board, coord *alvo){
 // Inicia a matriz (aloca, preence e valida)
 int **initBoard(int mode, int *score, int *level, int *extraPieces){
     int **board;
-
     // Alocação do tabuleiro
     board = malloc(SIZE * sizeof(int *));
     for (int i = 0; i < SIZE; i++)
